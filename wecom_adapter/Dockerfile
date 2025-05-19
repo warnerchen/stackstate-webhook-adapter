@@ -7,9 +7,4 @@ COPY wecom_adapter/adapter.py .
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir requests
 
-ENV TINI_VERSION=v0.19.0
-
-RUN wget -O /tini https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini && \
-    chmod +x /tini
-
-ENTRYPOINT ["/tini", "--", "python3", "adapter.py", "8080"]
+ENTRYPOINT ["python3", "adapter.py", "8080"]
