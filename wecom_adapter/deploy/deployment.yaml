@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: stackstate-wecom-webhook-adapter
+  name: stackstate-wecom-webhook-adapter
+  namespace: suse-observability
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stackstate-wecom-webhook-adapter
+  template:
+    metadata:
+      labels:
+        app: stackstate-wecom-webhook-adapter
+    spec:
+      containers:
+        - image: <registry>/<repository>/stackstate-wecom-webhook-adapter:<tag>
+          imagePullPolicy: IfNotPresent
+          name: stackstate-wecom-webhook-adapter
+          env:
+          - name: WECOM_WEBHOOK_TARGET_URL
+            value: "xxx"
+          resources:
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
