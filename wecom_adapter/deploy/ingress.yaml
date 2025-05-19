@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: stackstate-wecom-webhook-adapter
+  namespace: suse-observability
+spec:
+  rules:
+  - host: suse-observability-stackstate-wecom-webhook-adapter.warnerchen.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: stackstate-wecom-webhook-adapter
+            port:
+              number: 8080
+        path: /
+        pathType: Prefix

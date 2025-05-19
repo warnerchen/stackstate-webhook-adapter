@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: stackstate-wecom-webhook-adapter
+  namespace: suse-observability
+spec:
+  ports:
+    - name: port-8080
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: stackstate-wecom-webhook-adapter
+  type: ClusterIP

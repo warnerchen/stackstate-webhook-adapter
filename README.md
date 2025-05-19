@@ -18,6 +18,8 @@ docker build -t <registry>/<repository>/stackstate-wecom-webhook-adapter:<tag> -
 
 Replace the `image` and `WECOM_WEBHOOK_TARGET_URL` in `wecom_adapter/deploy/deployment.yaml`.
 
+Replace the `host` in `wecom_adapter/deploy/ingress.yaml`.
+
 Deploy to Kubernetes:
 
 ```bash
